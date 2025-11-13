@@ -1,0 +1,98 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "com.ui5.train.grouptwocasestudy",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.5",
+      "toolsId": "04b78334-71e7-4ac5-851d-2527b128c2eb"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.142.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.ui5.train.grouptwocasestudy.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.ui5.train.grouptwocasestudy.view",
+        "async": true,
+        "viewPath": "com.ui5.train.grouptwocasestudy.view"
+      },
+      "routes": [
+        {
+          "name": "RouteorderMain",
+          "pattern": ":?query:",
+          "target": [
+            "TargetorderMain"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetorderMain": {
+          "id": "orderMain",
+          "name": "orderMain"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.ui5.train.grouptwocasestudy.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
