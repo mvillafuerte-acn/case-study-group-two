@@ -1,1 +1,18 @@
 /* Enter your custom styles here */
+
+.statusCreated {
+    color: #0070f2 !important;
+    font-weight: 600;
+}
+.statusReleased {
+    color: #e78c07 !important;
+    font-weight: 600;
+}
+.statusPartiallyCompleted {
+    color: #d04437 !important;
+    font-weight: 600;
+}
+.statusDelivered {
+    color: #2b7d2b !important;
+    font-weight: 600;
+}

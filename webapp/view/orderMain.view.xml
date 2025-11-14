@@ -1,6 +1,87 @@
-<mvc:View controllerName="com.ui5.train.grouptwocasestudy.controller.orderMain"
+<mvc:View
+    controllerName="com.ui5.train.grouptwocasestudy.controller.orderMain"
+    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page title="Order Management">
+
+        <!-- simple test label so view always shows -->
+        <Label text="Order Management - View Loaded" class="sapUiLargeMargin"/>
+
+        <!-- FILTER BAR -->
+        <VBox class="sapUiSmallMargin">
+            <HBox justifyContent="SpaceBetween">
+                <VBox width="30%">
+                    <Label text="Order Number"/>
+                    <Input id="idOrderNumber"/>
+                </VBox>
+
+                <VBox width="30%">
+                    <Label text="Creation Date"/>
+                    <!-- using plain Input to avoid date parsing complications with string mock data -->
+                    <Input id="idCreationDate"/>
+                </VBox>
+
+                <VBox width="30%">
+                    <Label text="Status"/>
+                    <MultiComboBox id="idStatus">
+                        <core:Item key="Created" text="Created"/>
+                        <core:Item key="Released" text="Released"/>
+                        <core:Item key="Partially Completed" text="Partially Completed"/>
+                        <core:Item key="Delivered" text="Delivered"/>
+                    </MultiComboBox>
+                </VBox>
+
+                <VBox width="10%" class="sapUiSmallMarginTop">
+                    <Button text="Go" press=".onSearch"/>
+                    <Button text="Clear" press=".onClear" class="sapUiTinyMarginTop"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- TABLE bound to mockOrders model. This renders even if mockOrders is empty -->
+        <Table id="idOrdersTable"
+               items="{mockOrders>/Orders}"
+               mode="MultiSelect"
+               growing="true"
+               growingScrollToLoad="true">
+
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="Orders"/>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://add" tooltip="Create" press=".onCreate"/>
+                    <Button icon="sap-icon://delete" tooltip="Delete" press=".onDelete"/>
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+                <Column><Text text="Order Number"/></Column>
+                <Column><Text text="Creation Date"/></Column>
+                <Column><Text text="Receiving Plant"/></Column>
+                <Column><Text text="Delivering Plant"/></Column>
+                <Column><Text text="Status"/></Column>
+            </columns>
+
+            <items>
+                <ColumnListItem type="Navigation" press=".onItemPress">
+                    <cells>
+                        <!-- OrderNumber is a string so show as-is -->
+                        <Text text="{mockOrders>OrderNumber}"/>
+                        <!-- CreationDate kept as string here -->
+                        <Text text="{mockOrders>CreationDate}"/>
+                        <!-- Plant descriptions looked up via formatter (uses plantDesc model) -->
+                        <Text text="{path: 'mockOrders>ReceivingPlant', formatter: 'com.ui5.train.grouptwocasestudy.util.formatter.plantDescription'}"/>
+                        <Text text="{path: 'mockOrders>DeliveringPlant', formatter: 'com.ui5.train.grouptwocasestudy.util.formatter.plantDescription'}"/>
+                        <!-- show status text and apply CSS class via formatter -->
+                        <Text text="{mockOrders>Status}" class="{path: 'mockOrders>Status', formatter: 'com.ui5.train.grouptwocasestudy.util.formatter.statusClass'}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
     </Page>
+
 </mvc:View>
