@@ -11,19 +11,20 @@
         <HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="End" width="100%" wrap="true">
 
             <!-- Order Number -->
-            <VBox width="28%" class="sapUiSmallMarginEnd">
+            <VBox width="32%" class="sapUiSmallMarginEnd">
                 <Label text="Order Number"/>
-                <Input id="idOrderNumber"/>
+                <Input id="idOrderNumber" placeholder="Order Number"/>
+              
             </VBox>
 
             <!-- Creation Date -->
-            <VBox width="28%" class="sapUiSmallMarginEnd">
+            <VBox width="32%" class="sapUiSmallMarginEnd">
                 <Label text="Creation Date"/>
-                <DatePicker id="idCreationDate" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd"/>
+                <DatePicker id="idCreationDate" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" placeholder="Creation Date"/>
             </VBox>
 
             <!-- Status -->
-            <VBox width="28%" class="sapUiSmallMarginEnd">
+            <VBox width="32%" class="sapUiSmallMarginEnd">
                 <Label text="Status"/>
                 <MultiComboBox id="idStatus">
                     <core:Item key="Created" text="Created"/>
