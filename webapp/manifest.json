@@ -45,14 +45,28 @@
       "compact": true,
       "cozy": true
     },
+
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "com.ui5.train.grouptwocasestudy.i18n.i18n"
         }
+      },
+
+      "mockOrders": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/orders.json",
+        "preload": true
+      },
+
+      "plantDesc": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/plantDescription.json",
+        "preload": true
       }
     },
+
     "resources": {
       "css": [
         {
@@ -60,6 +74,7 @@
         }
       ]
     },
+
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
@@ -88,6 +103,7 @@
         }
       }
     },
+
     "rootView": {
       "viewName": "com.ui5.train.grouptwocasestudy.view.App",
       "type": "XML",

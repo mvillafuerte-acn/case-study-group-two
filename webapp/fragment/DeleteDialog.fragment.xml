@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog id="idDeleteDialog" title="Confirm Delete" type="Message">
+        <Text id="idDeleteMsg" text="Are you sure you want to delete the selected item(s)?"/>
+        <beginButton>
+            <Button text="Yes" press=".onConfirmDelete"/>
+        </beginButton>
+        <endButton>
+            <Button text="No" press=".onCancelDelete"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
